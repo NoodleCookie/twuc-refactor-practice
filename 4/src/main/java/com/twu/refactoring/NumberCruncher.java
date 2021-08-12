@@ -1,5 +1,9 @@
 package com.twu.refactoring;
 
+import java.util.Arrays;
+import java.util.function.IntPredicate;
+import java.util.function.Predicate;
+
 public class NumberCruncher {
     private final int[] numbers;
 
@@ -32,10 +36,10 @@ public class NumberCruncher {
     }
 
     public int countNegative() {
-        int count = 0;
-        for (int number : numbers) {
-            if (number < 0) count++;
-        }
-        return count;
+        return counter(number->number<0);
+    }
+
+    private int counter(IntPredicate predicate){
+        return (int) Arrays.stream(numbers).filter(predicate).count();
     }
 }
