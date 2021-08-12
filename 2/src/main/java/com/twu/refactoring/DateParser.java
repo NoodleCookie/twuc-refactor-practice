@@ -7,7 +7,7 @@ import java.util.TimeZone;
 
 public class DateParser {
     private final String dateAndTimeString;
-    private static final HashMap<String, TimeZone> KNOWN_TIME_ZONES = new HashMap<String, TimeZone>();
+    private static final HashMap<String, TimeZone> KNOWN_TIME_ZONES = new HashMap<>();
 
     static {
         KNOWN_TIME_ZONES.put("UTC", TimeZone.getTimeZone("UTC"));
