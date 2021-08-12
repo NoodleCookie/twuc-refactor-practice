@@ -8,33 +8,12 @@ public class Direction {
     }
 
     public Direction turnRight() {
-        switch (direction) {
-            case 'N':
-                return new Direction('E');
-            case 'S':
-                return new Direction('W');
-            case 'E':
-                return new Direction('N');
-            case 'W':
-                return new Direction('S');
-            default:
-                throw new IllegalArgumentException();
-        }
+        return new Direction(DirectionType.getType(direction).turnRight().name().toCharArray()[0]);
     }
 
+
     public Direction turnLeft() {
-        switch (direction) {
-            case 'N':
-                return new Direction('W');
-            case 'S':
-                return new Direction('E');
-            case 'E':
-                return new Direction('N');
-            case 'W':
-                return new Direction('S');
-            default:
-                throw new IllegalArgumentException();
-        }
+        return new Direction(DirectionType.getType(direction).turnLeft().name().toCharArray()[0]);
     }
 
     @Override
