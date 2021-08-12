@@ -16,6 +16,19 @@ public class Movie {
     public Movie(String title, int priceCode) {
         this.title = title;
         this.priceCode = priceCode;
+        getMovieTpye(priceCode);
+    }
+
+    public int getPriceCode() {
+        return priceCode;
+    }
+
+    public void setPriceCode(int arg) {
+        priceCode = arg;
+        getMovieTpye(priceCode);
+    }
+
+    private void getMovieTpye(int priceCode) {
         switch (priceCode) {
             case 0:
                 type = MovieType.REGULAR;
@@ -26,14 +39,6 @@ public class Movie {
             default:
                 type = MovieType.CHILDREN;
         }
-    }
-
-    public int getPriceCode() {
-        return priceCode;
-    }
-
-    public void setPriceCode(int arg) {
-        priceCode = arg;
     }
 
     public String getTitle() {
