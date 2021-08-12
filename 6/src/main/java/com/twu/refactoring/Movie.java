@@ -1,28 +1,43 @@
 package com.twu.refactoring;
 
 public class Movie {
-	public static final int CHILDREN = 2;
-	public static final int  REGULAR = 0;
-	public static final int  NEW_RELEASE = 1;
+    public static final int CHILDREN = 2;
+    public static final int REGULAR = 0;
+    public static final int NEW_RELEASE = 1;
 
-	private String title;
-	private int priceCode;
+    private MovieType type;
+    private String title;
+    private int priceCode;
 
-	public Movie(String title, int priceCode) {
-		this.title = title;
-		this.priceCode = priceCode;
-	}
+    public MovieType getType() {
+        return type;
+    }
 
-	public int getPriceCode() {
-		return priceCode;
-	}
+    public Movie(String title, int priceCode) {
+        this.title = title;
+        this.priceCode = priceCode;
+        switch (priceCode) {
+            case 0:
+                type = MovieType.REGULAR;
+                break;
+            case 1:
+                type = MovieType.NEW_RELEASE;
+                break;
+            default:
+                type = MovieType.CHILDREN;
+        }
+    }
 
-	public void setPriceCode(int arg) {
-    	priceCode = arg;
-	}
+    public int getPriceCode() {
+        return priceCode;
+    }
 
-	public String getTitle () {
-		return title;
-	}
+    public void setPriceCode(int arg) {
+        priceCode = arg;
+    }
+
+    public String getTitle() {
+        return title;
+    }
 }
 
