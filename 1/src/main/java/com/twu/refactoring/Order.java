@@ -1,6 +1,7 @@
 package com.twu.refactoring;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Order {
     private final String name;
@@ -23,5 +24,21 @@ public class Order {
 
     public List<LineItem> getLineItems() {
         return lineItems;
+    }
+
+    public String printLineList(){
+        return lineItems.stream().map(String::valueOf).collect(Collectors.joining());
+    }
+
+    public double totalPrice(){
+        return lineItems.stream().mapToDouble(LineItem::totalPrice).sum();
+    }
+
+    public double totalAmount(){
+        return lineItems.stream().mapToDouble(LineItem::totalAmount).sum();
+    }
+
+    public double totalTax(){
+        return lineItems.stream().mapToDouble(LineItem::totalTax).sum();
     }
 }
